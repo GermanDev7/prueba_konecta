@@ -22,23 +22,23 @@ else{
     <title>Prueba PHP</title>
 
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <?php $url="http://".$_SERVER['HTTP_HOST']."/prueba" ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
         <ul class="nav navbar-nav">
             <li class="nav-item ">
-                <a class="nav-link" href="<?php echo $url ?>/productos.php">Prueba</span></a>
+                <a class="nav-link" href="<?php echo $url ?>/views/productos/productos.php">Prueba</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $url ?>/productos.php">Producto</a>
+                <a class="nav-link" href="<?php echo $url ?>/views/productos/productos.php">Producto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $url ?>/ventas.php">Ventas</a>
+                <a class="nav-link" href="<?php echo $url ?>/views/ventas/ventas.php">Ventas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $url ?>/cerrar.php">Cerrar</a>
+                <a class="nav-link" href="<?php echo $url ?>/views/cerrar.php">Cerrar</a>
             </li>
             
         </ul>

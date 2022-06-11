@@ -1,5 +1,5 @@
-<?php include("template/header.php"); ?> 
-<?php include("config/bd.php"); ?> 
+<?php include("..\\..\\template\\header.php"); ?> 
+<?php include("..\\..\\config/bd.php"); ?> 
 <?php
 $nombre=(isset($_POST['nombre'])?$_POST['nombre']:"");
 $referencia=(isset($_POST['referencia'])?$_POST['referencia']:"");
@@ -9,10 +9,16 @@ $categoria_id=(isset($_POST['categoria_id'])?$_POST['categoria_id']:"");
 $cantidad=(isset($_POST['cantidad'])?$_POST['cantidad']:"");
 $accion=(isset($_POST['accion'])?$_POST['accion']:"");
 $id=(isset($_POST['id'])?$_POST['id']:"");
-
+//xargar productos
 $sentenciaSQLSelect = $conexion->prepare("SELECT * FROM productos");
 $sentenciaSQLSelect->execute();
 $productos = $sentenciaSQLSelect->fetchALL(PDO::FETCH_ASSOC);
+
+//cargar categorias
+
+$sentenciaSQLSelect = $conexion->prepare("SELECT * FROM categorias");
+$sentenciaSQLSelect->execute();
+$categorias = $sentenciaSQLSelect->fetchALL(PDO::FETCH_ASSOC);
 
 switch($accion)
 {
@@ -122,7 +128,16 @@ switch($accion)
                     </div>
                     <div class = "form-group p-1">
                         <label for="txtPeso">Categoria</label>
-                        <input type="number" class="form-control" value="<?php echo $categoria_id; ?>" name="categoria_id" id="txtCategoria" placeholder="Categoria" required>
+                        <select class="form-control col-md-12 " name="categoria_id" required>
+                                <option value="0">Seleccione una categoria</option>
+
+                                <?php
+                                    foreach($categorias as $categoria) {
+                                    echo '<option value="'.$categoria['id'].'">'.$categoria['nombre'].'</option>';
+                                    }
+                                ?>
+
+                            </select>
                     </div>
                     <div class = "form-group p-1">
                         <label for="txtCantidad">Cantidad</label>
@@ -183,4 +198,4 @@ switch($accion)
 
  
 
-<?php include("template/footer.php"); ?> 
+<?php include("../../template/footer.php"); ?> 

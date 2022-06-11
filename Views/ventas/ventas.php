@@ -1,5 +1,5 @@
-<?php include("template/header.php"); ?> 
-<?php include("config/bd.php");  
+<?php include("../../template/header.php"); ?> 
+<?php include("../../config/bd.php");  
 
 $producto_id=(isset($_POST['producto_id'])?$_POST['producto_id']:"");
 $cantidad=(isset($_POST['cantidad'])?$_POST['cantidad']:"");
@@ -86,7 +86,7 @@ if($accion=="vender")
                     <form method="POST">
                         <div class = "form-group p-2">
                             <label for="inputProducto">Producto</label>
-                            <select class="form-control col-md-7 " name="producto_id" required>
+                            <select class="form-control col-md-12 " name="producto_id" required>
                                 <option value="0">Seleccion un producto</option>
 
                                 <?php
@@ -117,4 +117,4 @@ if($accion=="vender")
     </div>
 </div>
 
-<?php include("template/footer.php"); ?> 
+<?php include("../../template/footer.php"); ?> 
